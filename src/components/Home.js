@@ -2,18 +2,18 @@ import { useState } from 'react'
 
 function Home() {
   const [characters, setCharacters] = useState([]);
-  async function CharCounter() {
+  function CharCounter() {
     /* función para obtener todos los personajes*/
+    let charactersArray=[]
     for (var i = 1; i < 43; i++) {
       fetch(`https://rickandmortyapi.com/api/character/?page=${i}`)
         .then((response) => response.json())
         .then((data) => {
-          console.log([characters, ...data.results]);
-          setCharacters([characters, data.results]);
-          console.log(data.results);
-          
+          /*Se está llenando el arreglo charactersArray con la Data de cada personaje*/
+          data.results.map((character)=>{return charactersArray.push(character)});          
         });
     }
+    console.log(charactersArray)
     return
   };
 
