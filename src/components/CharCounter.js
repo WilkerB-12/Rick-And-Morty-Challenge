@@ -9,7 +9,10 @@ async function CharCounter() {
         .then((data) => {
           /*Se está llenando el arreglo charactersArray con la Data de cada personaje*/
           data.results.map((character) => { return charactersArray.push(character) });
-        });
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+          });
     };
     let indicesCharacters = [];
     /*Se recorre el arreglo de los characters para obtener cada nombre
@@ -31,7 +34,10 @@ async function CharCounter() {
         .then((data) => {
           /*Se está llenando el arreglo episodeArray con la Data de cada episodio*/
           data.results.map((episode) => { return episodeArray.push(episode) });
-        });
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+          });;
     };
     let indicesEpisode = [];
     /*Se recorre el arreglo de los episodios para obtener cada nombre
@@ -53,7 +59,10 @@ async function CharCounter() {
         .then((data) => {
           /*Se está llenando el arreglo locationArray con la Data de cada lugar*/
           data.results.map((location) => { return locationArray.push(location) });
-        });
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+          });;
     };
     let indicesLocation = [];
     /*Se recorre el arreglo de las localidades para obtener cada nombre

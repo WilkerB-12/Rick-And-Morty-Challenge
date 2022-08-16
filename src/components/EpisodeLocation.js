@@ -8,7 +8,10 @@ async function EpisodeLocations() {
         .then((data) => {
           /*Se está llenando el arreglo episodeArray con la Data de cada episodio*/
           data.results.map((episode) => { return episodeArray.push(episode) });
-        });
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+          });;
     };
     let charactersArray = [];
     for (var i = 1; i < 43; i++) {
@@ -17,7 +20,10 @@ async function EpisodeLocations() {
         .then((data) => {
           /*Se está llenando el arreglo charactersArray con la Data de cada personaje*/
           data.results.map((character) => { return charactersArray.push(character) });
-        });
+        })
+        .catch(function(error) {
+            console.log('Hubo un problema con la petición Fetch:' + error.message);
+          });;
     };
     let episodeWithOrigin=[];
     /*Se está recorriendo el arreglo de episodios, dentro del arreglo, se recorre el arreglo de los personajes en el
